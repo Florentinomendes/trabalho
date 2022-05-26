@@ -10,7 +10,7 @@ if(tecla==38){//cima
 }if(tecla==39){//direita
     posAct_y=1;
 }
-if(tecla==32){//barra para atirar
+if(tecla==32){ //barra para atirar
     
 }
 }
