@@ -1,14 +1,24 @@
-var posAct_y, posAct_x;
+
+//velocidade do jogo= velj, direção do jogador= dirActt, posição do jogador = posAct, elemento da tela recebe jog;
+
+
+
+var dirAct_y, dirAct_x ,posAct_x,posAct_y, velj, jog;
+var jogo 
+var frame;
+var tamTelaLargura,tamTelaAltura;
+
+
 function tecla_clicada (){
 var tecla= event.keyCode;
 if(tecla==38){//cima
-    posAct_y=-1;
+    dirAct_y=-1;
 }if(tecla==40){//baixo
-    posAct_y=1;
+    dirAct_y=1;
 }if(tecla==37){//esquerda
-    posAct_y=-1;
+    dirAct_y=-1;
 }if(tecla==39){//direita
-    posAct_y=1;
+    dirAct_y=1;
 }
 if(tecla==32){ //barra para atirar
     
@@ -16,9 +26,41 @@ if(tecla==32){ //barra para atirar
 }
 function tecla_solta (){
     if((tecla==38)||(tecla==40)){//cima
-        posAct_y=0;
+        dirAct_y=0;
     }
     if((tecla==39)||(tecla==37)){//cima
-        posAct_y=0;
+        dirAct_y=0;
     }
 }
+function controlaAtor(){
+
+}
+function gameloop(){
+ if(jogo){
+     //funcões do jogo será chamada assim que o jogo virar true
+ }
+ frame= requestAnimationFrame(gameloop),
+}
+function inicia(){
+  //Aqui incializamos os componentes do nosso jogo
+ jogo= false;
+ //incializar jogador
+ dirAct_x=dirAct_y=0; // uma forma mais simplificada de atribuir valor aos 2 variáveis.
+ posAct_x= tamTelaLargura/2;
+ posAct_y= tamTelaAltura/2;
+ velj=4;
+ jog= document.getElementById("actor_jogo");
+ jog.style.top= posAct_y +"px";
+ jog.style.left= posAct_y +"px";
+ 
+
+ 
+  //incializar a tela
+  tamTelaAltura= innerHeight;
+  tamTelaLargura= innerWidth;
+
+
+}
+document.addEventListener("load", inicia);
+document.addEventListener("keydown", tecla_clicada);
+document.addEventListener("keyup", tecla_solta)
