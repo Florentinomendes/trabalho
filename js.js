@@ -1,11 +1,11 @@
 
-//velocidade do jogo= velj, direção do jogador= dirActt, posição do jogador = posAct, elemento da tela recebe jog;
+//velocidade do jogo= velj, direção do jogador= dirActt, posição do jogador = posAct, elemento da div da tela recebe jog;
 
 
 
 var dirAct_y, dirAct_x ,posAct_x,posAct_y, velj, jog;
 var jogo 
-var frame;
+var frames;
 var tamTelaLargura,tamTelaAltura;
 
 
@@ -33,17 +33,21 @@ function tecla_solta (){
     }
 }
 function controlaAtor(){
-
+ posAct_y+= dirAct_y*jog;
+ posAct_x+= dirAct_x*jog;
+ jog.style.top= posAct_y +"px";
+ jog.style.left= posAct_x +"px";
 }
 function gameloop(){
  if(jogo){
      //funcões do jogo será chamada assim que o jogo virar true
+     controlaAtor();
  }
- frame= requestAnimationFrame(gameloop),
+ frames= requestAnimationFrame(gameloop),
 }
 function inicia(){
   //Aqui incializamos os componentes do nosso jogo
- jogo= false;
+ jogo= true;
  //incializar jogador
  dirAct_x=dirAct_y=0; // uma forma mais simplificada de atribuir valor aos 2 variáveis.
  posAct_x= tamTelaLargura/2;
@@ -51,8 +55,9 @@ function inicia(){
  velj=4;
  jog= document.getElementById("actor_jogo");
  jog.style.top= posAct_y +"px";
- jog.style.left= posAct_y +"px";
- 
+ jog.style.left= posAct_x +"px";
+
+ gameloop();
 
  
   //incializar a tela
