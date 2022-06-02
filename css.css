@@ -1,24 +1,57 @@
-/*Para não mostrar a barra de rolagem do jogo*/
-body{
-overflow-y: hidden ;
-overflow-x: hidden;
-background-color: beige;
-
-}
-/*Caracteristica do actor*/
-.actor_jogo{
-    width: 50px;
-    height: 70;
-    background-image: url(png-clipart-sniper-sniper.png);
-    position: absolute;
-    animation: infinite;
-}
-.msg{
-    position: absolute;
-    margin-left: -25%;
-    top: 50%;
-    left: 50%;
-    width: 720px;
-    height: 700px;
-    display: none;
-}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;   
+    }
+    .tela_jogo{
+      width: 90%;
+      height: 700px;
+      border: 1px solid rgb(0, 0, 0);
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 15px solid rgb(190, 255, 190);
+     
+    }
+    .mario{
+     width: 160px;
+     position: absolute;   
+     bottom:0; 
+     
+    }
+    .pular{
+        animation: animar_mario 500ms ease-in-out;
+    }
+    .pipa{
+     position: absolute;
+     bottom: 0;
+     width: 90px;
+     animation: animar_pipa 1500ms infinite linear
+    }
+    /* kEYFRAMES para determinar onde a nossa animação vai começar e terminar */
+    @keyframes animar_pipa {
+       from{
+        right: 0;
+       } 
+       to{
+        right: 100%;
+       }
+    }
+    @keyframes animar_mario {
+        0%{
+         bottom: 0;
+        } 
+        40%{
+            bottom: 168px;
+        }
+        50%{
+            bottom: 180px;
+        }
+        60%{
+            bottom: 179;
+        }
+        100%{
+            bottom: 0  ;
+    
+        }
+     }
