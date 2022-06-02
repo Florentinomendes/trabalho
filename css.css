@@ -5,30 +5,31 @@
     }
     .tela_jogo{
       width: 90%;
-      height: 701px;
+      height: 700px;
       border: 1px solid rgb(0, 0, 0);
       margin: auto;
       position: relative;
       overflow: hidden;
       border-bottom: 15px solid rgb(190, 255, 190);
+     
     }
-    .naruto{
+    .mario{
      width: 160px;
      position: absolute;   
      bottom:0; 
      
     }
     .pular{
-        animation: animar_naruto 500ms ease-in-out;
+        animation: animar_mario 500ms ease-in-out;
     }
     .pipa{
      position: absolute;
      bottom: 0;
      width: 90px;
-     animation: animar_arranha 1500ms infinite linear
+     animation: animar_pipa 1500ms infinite linear
     }
     /* kEYFRAMES para determinar onde a nossa animação vai começar e terminar */
-    @keyframes animar_arranha {
+    @keyframes animar_pipa {
        from{
         right: 0;
        } 
@@ -36,7 +37,7 @@
         right: 100%;
        }
     }
-    @keyframes animar_naruto {
+    @keyframes animar_mario {
         0%{
          bottom: 0;
         } 
