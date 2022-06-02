@@ -13,23 +13,23 @@
       border-bottom: 15px solid rgb(190, 255, 190);
       background-color: blue;
     }
-    .mario{
+    .naruto{
      width: 160px;
      position: absolute;   
      bottom:0; 
      
     }
     .pular{
-        animation: animar_mario 500ms ease-in-out;
+        animation: animar_naruto 500ms ease-in-out;
     }
     .pipa{
      position: absolute;
      bottom: 0;
      width: 90px;
-     animation: animar_pipa 1500ms infinite linear
+     animation: animar_arranha 1500ms infinite linear
     }
     /* kEYFRAMES para determinar onde a nossa animação vai começar e terminar */
-    @keyframes animar_pipa {
+    @keyframes animar_arranha {
        from{
         right: 0;
        } 
@@ -37,7 +37,7 @@
         right: 100%;
        }
     }
-    @keyframes animar_mario {
+    @keyframes animar_naruto {
         0%{
          bottom: 0;
         } 

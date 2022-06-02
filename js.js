@@ -1,32 +1,32 @@
 
-const mario= document.querySelector('.mario');
-const pipa= document.querySelector('.pipa');
+const naruto= document.querySelector('.naruto');
+const arranha= document.querySelector('.arranha');
 const tela_fim= document.querySelector('.tela_jogo')
 
-const saltar=() => {//Para adicionarmos classe na img mario 
-    mario.classList.add('pular')
+const saltar=() => {//Para adicionarmos classe na img naruto 
+    naruto.classList.add('pular')
     setTimeout(() => {
-        mario.classList.remove('pular')
+        naruto.classList.remove('pular')
     }, 500);
 }//Definimos0 o método setTimeout para remover a classe pular do css cada vez que o teclado foi acionado
 
 const loop_jogo= setInterval(() => {
-        const pipaPos = pipa.offsetLeft;
-        const marioPos = +window.getComputedStyle(mario).bottom.replace('px', ''); //serve para pegarmos o estilo completado na imagem tirando o px
+        const arranhaPos = arranha.offsetLeft;
+        const narutoPos = +window.getComputedStyle(naruto).bottom.replace('px', ''); //serve para pegarmos o estilo completado na imagem tirando o px
         
-        console.log(marioPos);
+        console.log(narutoPos);
         
-        if (pipaPos <= 120 && pipaPos > 0 && marioPos < 80) {
+        if (arranhaPos <= 120 && arranhaPos > 0 && narutoPos < 80) {
             
-            pipa.style.animation = 'none';
-            pipa.style.left = `${pipaPos}px`; //Vai ficar parado onde aconteceu a colisão
-            mario.style.animation = 'none';
-            mario.style.bottom = `${marioPos}px`;
+            arranha.style.animation = 'none';
+            arranha.style.left = `${arranhaPos}px`; //Vai ficar parado onde aconteceu a colisão
+            naruto.style.animation = 'none';
+            naruto.style.bottom = `${narutoPos}px`;
 
-            mario.src="3c50b7ea149f7187fc1982cfaad4ae46 (1).webp"
-            mario.style.width= '80px';
-            mario.style.height='100px'
-            mario.style.marginLeft= '30px'
+            naruto.src="3c50b7ea149f7187fc1982cfaad4ae46 (1).webp"
+            naruto.style.width= '80px';
+            naruto.style.height='100px'
+            naruto.style.marginLeft= '30px'
             clearInterval(loop_jogo);
            
         }
