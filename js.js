@@ -33,8 +33,8 @@ function tecla_solta (){
     }
 }
 function controlaAtor(){
- posAct_y+= dirAct_y*jog;
- posAct_x+= dirAct_x*jog;
+ posAct_y+= dirAct_y * jog;
+ posAct_x+= dirAct_x * jog;
  jog.style.top= posAct_y +"px";
  jog.style.left= posAct_x +"px";
 }

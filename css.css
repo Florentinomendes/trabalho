@@ -11,7 +11,7 @@ background-color: beige;
     height: 70;
     background-image: url(png-clipart-sniper-sniper.png);
     position: absolute;
-
+    animation: infinite;
 }
 .msg{
     position: absolute;
