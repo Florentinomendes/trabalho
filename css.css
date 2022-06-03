@@ -25,7 +25,7 @@
     .arranha{
      position: absolute;
      bottom: 0;
-     width: 90px;
+     width: 91px;
      animation: animar_arranha 1500ms infinite linear
     }
     /* kEYFRAMES para determinar onde a nossa animação vai começar e terminar */

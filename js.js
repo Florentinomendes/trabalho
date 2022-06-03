@@ -19,7 +19,7 @@ const loop_jogo= setInterval(() => {
         if (arranhaPos <= 120 && arranhaPos > 0 && narutoPos < 80) {
             
             arranha.style.animation = 'none';
-            arranha.style.left = `${arranhaPos}px`; //Vai ficar parado onde aconteceu a colisão
+            arranha.style.left = `${arranhaPos}px`; //Vai ficar parado onde aconteceu a colisão ente elementos
             naruto.style.animation = 'none';
             naruto.style.bottom = `${narutoPos}px`;
 
@@ -31,8 +31,6 @@ const loop_jogo= setInterval(() => {
            
         }
     },10);
-
-
 
 
 
