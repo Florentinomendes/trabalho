@@ -28,6 +28,13 @@
      width: 91px;
      animation: animar_arranha 1500ms infinite linear
     }
+    .ceu{
+        position: absolute;
+        top: 0; 
+        width: 400px;
+        animation: animar_ceu 3500ms infinite linear;
+     
+     }
     /* kEYFRAMES para determinar onde a nossa animação vai começar e terminar */
     @keyframes animar_arranha {
        from{
@@ -54,4 +61,12 @@
             bottom: 0  ;
     
         }
+     }
+     @keyframes animar_ceu {
+        from{
+            right: 0; 
+        }
+        to{
+        right: 100%;
+    }
      }

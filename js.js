@@ -27,6 +27,8 @@ const loop_jogo= setInterval(() => {
             naruto.style.width= '80px';
             naruto.style.height='100px'
             naruto.style.marginLeft= '30px'
+            fim_jogo.src="200w.webp";
+
             clearInterval(loop_jogo);
            
         }
