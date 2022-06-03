@@ -13,7 +13,7 @@ const saltar=() => {//Para adicionarmos classe na img naruto
 const loop_jogo= setInterval(() => {
         const arranhaPos = arranha.offsetLeft;
         const narutoPos = +window.getComputedStyle(naruto).bottom.replace('px', ''); //serve para pegarmos o estilo completado na imagem tirando o px
-        
+        const ceuPos= +window.getComputedStyle(ceu).top.replace('px', '');
         console.log(narutoPos);
         
         if (arranhaPos <= 120 && arranhaPos > 0 && narutoPos < 80) {
@@ -25,8 +25,8 @@ const loop_jogo= setInterval(() => {
             ceu.style.top= `${ceuPos}px`; 
             naruto.src="3c50b7ea149f7187fc1982cfaad4ae46 (1).webp"
             naruto.style.width= '80px';
-            naruto.style.height='100px'
-            naruto.style.marginLeft= '30px'
+            naruto.style.height='100px';
+            naruto.style.marginLeft= '30px';
             fim_jogo.src="200w.webp";
             ceu.style.top= `${ceuPos}px`;            
             clearInterval(loop_jogo);
