@@ -1,4 +1,4 @@
-const fim_jogo= document.querySelector('.fim_jogo');
+
 const ceu= document.querySelector('.ceu');
 const naruto= document.querySelector('.naruto');
 const arranha= document.querySelector('.arranha');
@@ -13,6 +13,7 @@ const saltar=() => {//Para adicionarmos classe na img naruto
 
 const loop_jogo= setInterval(() => {
         const arranhaPos = arranha.offsetLeft;
+        const ceuPos= ceu.offsetLeft;
         const narutoPos = +window.getComputedStyle(naruto).bottom.replace('px', ''); //serve para pegarmos o estilo completado na imagem tirando o px
         console.log(narutoPos);
         
@@ -23,11 +24,12 @@ const loop_jogo= setInterval(() => {
             naruto.style.animation = 'none';
             naruto.style.bottom = `${narutoPos}px`;
             ceu.style.animation= 'none';
+            ceu.style.left = `${ceuPos}px`;
             naruto.src="3c50b7ea149f7187fc1982cfaad4ae46 (1).webp"
             naruto.style.width= '80px';
             naruto.style.height='100px';
             naruto.style.marginLeft= '30px';
-            tela_fim.src="200w.webp";         
+            fim_jogo.src="200w.webp";         
             clearInterval(loop_jogo);
            
         }
