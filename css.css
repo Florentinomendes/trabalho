@@ -14,11 +14,11 @@
       background-clip: border-box;
     }
     .fim_jogo{
-        position: absolute;
+        position: relatve;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
-        
+        margin-left: 20%;
+        margin-top:20%;
+       width:70%
     }
     .naruto{
      width: 160px;
