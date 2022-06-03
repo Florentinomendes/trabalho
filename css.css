@@ -31,7 +31,7 @@
     .ceu{
         position: absolute;
         top: 0; 
-        width: 400px;
+        width: 450px;
         animation: animar_ceu 3000ms infinite linear;
      
      }
