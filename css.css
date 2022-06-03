@@ -33,7 +33,6 @@
         top: 0; 
         width: 450px;
         animation: animar_ceu 3000ms infinite linear;
-     
      }
     /* kEYFRAMES para determinar onde a nossa animação vai começar e terminar */
     @keyframes animar_arranha {

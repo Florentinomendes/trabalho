@@ -21,7 +21,7 @@ const loop_jogo= setInterval(() => {
             arranha.style.left = `${arranhaPos}px`; //Vai ficar parado onde aconteceu a colisão ente elementos
             naruto.style.animation = 'none';
             naruto.style.bottom = `${narutoPos}px`;
-            ceu.style.top= 'none';
+            ceu.style.animation= 'none';
             naruto.src="3c50b7ea149f7187fc1982cfaad4ae46 (1).webp"
             naruto.style.width= '80px';
             naruto.style.height='100px';
