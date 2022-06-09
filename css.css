@@ -4,7 +4,7 @@
     box-sizing: content-box;   
     }
     .tela_jogo{
-      width: 90%;
+      width: 100%;
       height: 700px;
       border: 1px solid rgb(0, 0, 0);
       margin: auto;
@@ -12,6 +12,7 @@
       overflow: hidden;
       border-bottom: 15px solid rgb(190, 255, 190);
       background-clip: border-box;
+      background: linear-gradient(rgb(78, 78, 236), rgb(79, 196, 33) )
     }
  
 
