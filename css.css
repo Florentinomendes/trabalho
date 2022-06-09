@@ -14,10 +14,10 @@
       background-clip: border-box;
     }
     .retomar{
-      position: relative;
+      position: absolute;
       border: 40px;
       width: 40%;
-      margin-top: 30% ;  
+      margin-top: 10% ;  
     }
     .fim_jogo{
         position: relatve;
