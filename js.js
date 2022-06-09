@@ -32,7 +32,6 @@ const loop_jogo= setInterval(() => {
             naruto.style.marginLeft= '30px';
             fim_jogo.src="200w.webp";         
             clearInterval(loop_jogo);
-            const reiniciar=document.querySelector('.retomar').innerHTML="Clique aqui para retomar";
             
         }
     },10);

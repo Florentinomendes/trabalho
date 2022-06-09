@@ -13,12 +13,8 @@
       border-bottom: 15px solid rgb(190, 255, 190);
       background-clip: border-box;
     }
-    .retomar{
-      position: absolute;
-      border: 40px;
-      width: 40%;
-      margin-top: 10% ;  
-    }
+ 
+
     .fim_jogo{
         position: relatve;
         display: block;
