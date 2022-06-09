@@ -3,6 +3,7 @@ const ceu= document.querySelector('.ceu');
 const naruto= document.querySelector('.naruto');
 const arranha= document.querySelector('.arranha');
 const fim_jogo= document.querySelector('.fim_jogo');
+const reiniciar=document.querySelector('.retomar').innerHTML="Clique aqui para retomar";
 
 const saltar=() => {//Para adicionarmos classe na img naruto 
     naruto.classList.add('pular')
@@ -31,7 +32,8 @@ const loop_jogo= setInterval(() => {
             naruto.style.marginLeft= '30px';
             fim_jogo.src="200w.webp";         
             clearInterval(loop_jogo);
-           
+            reiniciar.reiniciar;
+            
         }
     },10);
 
