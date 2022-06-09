@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Velha</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .horizontal::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background-color: #000;
+    }
+
+    .vertical::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background-color: #000;
+      transform: rotate(90deg);
+    }
+
+    .inclined-right::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 144%;
+      height: 4px;
+      background-color: #000;
+      transform: rotate(45deg);
+    }
+
+    .inclined-left::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 144%;
+      height: 4px;
+      background-color: #000;
+      transform: rotate(-45deg);
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    body .container {
+      width: 100%;
+      padding: 0 20px;
+      text-align: center;
+      font-family: cursive;
+    }
+
+    header h1 {
+      font-size: 48px;
+      font-family: cursive;
+    }
+
+    header button {
+      margin-top: 20px;
+      padding: 0 5px;
+      font-size: 26px;
+      font-family: cursive;
+      font-weight: bold;
+      border: none;
+      border-bottom: 2px solid rgb(185, 33, 33);
+      color: rgb(0, 0, 0);
+      background-color: #fff;
+      cursor: pointer;
+      transition: .7s;
+    }
+
+    header button:hover {
+      transform: scale(1.2);
+    }
+
+    main {
+      margin: 60px auto;
+    }
+
+    main div {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 300px;
+      margin: auto;
+    }
+
+    main span {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      font-size: 5em;
+      cursor: default;
+    }
+
+    main .center-x {
+      border-top: 2px solid rgb(173, 20, 20);
+      border-bottom: 2px solid rgb(229, 255, 0);
+      background-color: crimson;
+    }
+
+    main .center-y {
+      border-left: 2px solid rgb(0, 153, 255);
+      border-right: 2px solid rgb(0, 235, 184);
+      background-color: chartreuse;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Jogo da Velha</h1>
+    </header>
+    <main>
+      <div id="game">
+        <span id="0-0"></span>
+        <span id="1-0" class="center-y"></span>
+        <span id="2-0"></span>
+        <span id="0-1" class="center-x"></span>
+        <span id="1-1" class="center-x center-y"></span>
+        <span id="2-1" class="center-x"></span>
+        <span id="0-2"></span>
+        <span id="1-2" class="center-y"></span>
+        <span id="2-2"></span>
+      </div>
+    </main>
+    
+  </div>
+
+  <script>
+    class Jogo {
+      constructor() {
+        this.map = new Map()
+        this.game = document.getElementById('game')
+        this.header = document.querySelector('header')
+        this.h1 = document.querySelector('h1')
+        this.button = document.createElement('button')
+        this.direction = ''
+        this.win = false
+        this.init()
+        this.event()
+      }
+
+      init() {
+        this.map.set("O", [])
+        this.map.set("X", [])
+      }
+
+      event() {
+        let player = 'O'
+
+        this.game.addEventListener('click', event => {
+          if(event.target.textContent !== '' || this.win)
+            return
+
+          event.target.textContent = player
+
+          if(this.validates(player, event.target.id))
+            return
+            
+          player = player === 'O' ? 'X' : 'O'
+        })
+
+        this.button.addEventListener('click', event => {
+          this.reiniciar()
+        })
+      }
+
+      validates(player, id) {
+        this.map.get(player).push(id)
+
+        const moves = this.map.get(player).map(id => id.split('#')[0])
+
+        if(moves.includes('0-0') && moves.includes('1-1') && moves.includes('2-2')) 
+          return this.drawWin('0-0', '1-1', '2-2', 'inclined-right', player)
+
+        if(moves.includes('2-0') && moves.includes('1-1') && moves.includes('0-2')) 
+          return this.drawWin('2-0', '1-1', '0-2', 'inclined-left', player)
+
+        if(moves.includes('0-0') && moves.includes('1-0') && moves.includes('2-0')) 
+          return this.drawWin('0-0', '1-0', '2-0', 'horizontal', player)
+
+        if(moves.includes('0-1') && moves.includes('1-1') && moves.includes('2-1')) 
+          return this.drawWin('0-1', '1-1', '2-1', 'horizontal', player)
+
+        if(moves.includes('0-2') && moves.includes('1-2') && moves.includes('2-2')) 
+          return this.drawWin('0-2', '1-2', '2-2', 'horizontal', player)
+
+        if(moves.includes('0-0') && moves.includes('0-1') && moves.includes('0-2')) 
+          return this.drawWin('0-0', '0-1', '0-2', 'vertical', player)
+
+        if(moves.includes('1-0') && moves.includes('1-1') && moves.includes('1-2')) 
+          return this.drawWin('1-0', '1-1', '1-2', 'vertical', player)
+
+        if(moves.includes('2-0') && moves.includes('2-1') && moves.includes('2-2')) 
+          return this.drawWin('2-0', '2-1', '2-2', 'vertical', player)
+
+        if(player === 'O' && moves.length === 5) {
+          this.h1.textContent = 'Vocês empataram!'
+          this.button.textContent = 'Clique aqui para começar!'
+          this.header.appendChild(this.button)
+
+          return true
+        }
+      }
+
+      drawWin(p1, p2, p3, direction, player) {
+        const a = document.getElementById(p1)
+        const b = document.getElementById(p2)
+        const c = document.getElementById(p3)
+
+        a.classList.add(direction)
+        b.classList.add(direction)
+        c.classList.add(direction)
+        
+        this.h1.textContent = `Player ${player} venceu!`
+        this.button.textContent = 'Reiniciar'
+        this.header.appendChild(this.button)
+
+        this.direction = direction
+
+        return this.win = true
+      }
+
+      reiniciar() {
+        const spans = this.game.querySelectorAll('span')
+
+        spans.forEach(span => {
+          span.textContent = ''
+          
+          if(span.classList.contains(this.direction))
+            span.classList.remove(this.direction)
+        })
+
+        this.header.removeChild(this.button)
+        this.h1.textContent = 'Jogo da Velha'
+
+        this.direction = ''
+        this.win = false
+        this.map = new Map()
+        this.init()
+      }
+    }
+
+    new Jogo
+  </script>
+</body>
+</html>
